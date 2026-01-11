@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "自动查看元素xpath",
+  "version": "2.0",
+  "description": "一个用于自动查看元素xpath的工具（作者：他们一般叫我家豪）",
+  "author": "他们一般都叫我家豪",
+  "permissions": ["activeTab", "tabs", "scripting", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["lib/dom-inspector.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/*.js", "icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "48": "icons/icon48.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
