@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元素检查工具</title>
+    <style>
+      body {
+        width: 320px;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #1a1b1e;
+        color: #fff;
+      }
+      .container { padding: 20px; }
+      .header { text-align: center; margin-bottom: 20px; position: relative; padding-bottom: 15px; }
+      .header::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: linear-gradient(90deg, #00b4db, #0083b0); border-radius: 3px; }
+      .logo { font-size: 24px; font-weight: 700; background: linear-gradient(45deg, #00b4db, #0083b0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+      .subtitle { font-size: 14px; color: #888; margin: 8px 0 0; }
+      .main-button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: linear-gradient(45deg, #00b4db, #0083b0); color: white; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+      .main-button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 180, 219, 0.4); }
+      .features { margin-top: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 15px; }
+      .feature-title { font-size: 14px; color: #00b4db; margin: 0 0 10px; display: flex; align-items: center; }
+      .feature-title svg { width: 16px; height: 16px; margin-right: 8px; }
+      .feature-list { margin: 0; padding: 0 0 0 20px; list-style-type: none; }
+      .feature-list li { font-size: 13px; color: #bbb; margin: 8px 0; position: relative; }
+      .feature-list li::before { content: "•"; color: #00b4db; position: absolute; left: -15px; }
+      .feature-list li strong { display: inline-block; background: linear-gradient(45deg, #00b4db, #0083b0); color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; margin: 0 2px; box-shadow: 0 2px 4px rgba(0, 180, 219, 0.3); }
+      .footer { margin-top: 20px; text-align: center; font-size: 12px; color: #666; }
+      .gradient-border { position: relative; border-radius: 12px; padding: 1px; background: linear-gradient(45deg, #00b4db, #0083b0, #00b4db); background-size: 200% 200%; animation: gradientBG 3s ease infinite; }
+      .inner-content { background: #1a1b1e; border-radius: 11px; padding: 20px; }
+      .button-group { position: relative; }
+      .main-button.stop { background: linear-gradient(45deg, #ff4b4b, #ff6b6b); margin-top: 10px; }
+      .main-button.stop:hover { box-shadow: 0 5px 15px rgba(255, 75, 75, 0.4); }
+      @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="gradient-border">
+        <div class="inner-content">
+          <div class="header">
+            <h1 class="logo"><img src="icons/icon48.png" alt="logo" /></h1>
+            <p class="subtitle">智能元素检查工具</p>
+          </div>
+          <div class="button-group">
+            <button id="startInspect" class="main-button">开始检查</button>
+            <button id="stopInspect" class="main-button stop" style="display: none">停止检查</button>
+          </div>
+          <div class="features">
+            <h3 class="feature-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>功能特点</h3>
+            <ul class="feature-list">
+              <li>智能识别页面元素</li>
+              <li>自动生成多种XPath定位方式</li>
+              <li>快速分析元素</li>
+              <li>一键复制元素信息</li>
+              <li>按 <strong>Z</strong> 键开启/关闭检查</li>
+              <li>按 <strong>X</strong> 键固定选中元素</li>
+              <li>按 <strong>C</strong> 键显示/隐藏提示框</li>
+              <li>按 <strong>T</strong> 键开启/关闭彩色轨迹</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span>© 2024 XPath Helper Pro</span></div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

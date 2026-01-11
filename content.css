@@ -1,0 +1,56 @@
+.dom-inspector-wrapper {
+    position: fixed !important;
+    z-index: 10000000 !important;
+    pointer-events: auto !important;
+    background: rgba(35, 39, 47, 0.95) !important;
+    color: #fff !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 13px !important;
+    width: auto !important;
+    min-width: 300px !important;
+    max-width: 520px !important;
+    height: auto !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    left: 0 !important;
+    top: 0 !important;
+    opacity: 1 !important;
+    transform-origin: top center !important;
+}
+
+.dom-inspector-wrapper::-webkit-scrollbar { width: 6px !important; height: 6px !important; }
+.dom-inspector-wrapper::-webkit-scrollbar-track { background: transparent !important; }
+.dom-inspector-wrapper::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2) !important; border-radius: 3px !important; }
+.dom-inspector-wrapper::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3) !important; }
+
+.drag-handle { position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 20px !important; background: rgba(255, 255, 255, 0.05) !important; cursor: move !important; border-top-left-radius: 8px !important; border-top-right-radius: 8px !important; }
+.drag-handle::after { content: "⋮⋮" !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; color: rgba(255, 255, 255, 0.5) !important; font-size: 12px !important; }
+
+.tooltip-content { display: flex; flex-direction: column; gap: 12px; }
+.tooltip-section { background: rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 10px; position: relative; margin-bottom: 8px; }
+.tooltip-section h4 { margin: 0; color: #64b5f6; font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+
+.copyable { cursor: pointer !important; pointer-events: auto !important; -webkit-user-select: text !important; user-select: text !important; padding: 6px 8px !important; margin: 4px 0 !important; border-radius: 4px !important; background: rgba(0, 0, 0, 0.2) !important; transition: all 0.2s ease !important; word-wrap: break-word !important; word-break: break-all !important; white-space: normal !important; line-height: 1.3 !important; max-width: 450px !important; }
+.copyable:hover { background: rgba(100, 181, 246, 0.1) !important; box-shadow: 0 0 0 1px rgba(100, 181, 246, 0.3) !important; }
+.copyable:active { transform: scale(0.98) !important; }
+
+.copyable.copy-success { background: rgba(76, 175, 80, 0.1) !important; border: 1px solid rgba(76, 175, 80, 0.2) !important; }
+.copy-success-message { display: inline-flex !important; align-items: center !important; gap: 4px !important; color: #4caf50 !important; font-size: 13px !important; margin-left: 8px !important; animation: slideIn 0.3s ease !important; }
+.copy-checkmark { color: #4caf50 !important; font-weight: bold !important; }
+
+.match-count { color: #888; font-size: 12px; margin: 4px 0; }
+.tag-highlight { color: #e06c75; font-weight: 600; padding: 2px 4px; background: rgba(224, 108, 117, 0.1); border-radius: 3px; }
+
+.dom-inspector-wrapper.frozen { pointer-events: auto !important; border: 2px solid #4caf50 !important; background: rgba(35, 39, 47, 0.95) !important; box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.5) !important; transition: none !important; }
+.dom-inspector-wrapper.frozen .drag-handle { background: rgba(76, 175, 80, 0.3) !important; }
+
+@keyframes slideIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideOutRight { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(100px); } }
+@keyframes trailFadeOut { 0% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); } }
+
+.trail-dot { will-change: opacity, transform !important; }
+#mouse-trail-container { background: transparent !important; }
